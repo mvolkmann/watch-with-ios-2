@@ -5,11 +5,9 @@ class ConnectionProvider: NSObject, WCSessionDelegate {
     static let instance = ConnectionProvider()
     let model = Model.instance
     
-    //let session = WCSession.default
-    let session: WCSession
+    let session = WCSession.default
     
     override init() {
-        session = WCSession.default
         super.init()
         self.session.delegate = self
     }
