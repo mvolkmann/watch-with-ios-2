@@ -21,6 +21,9 @@
 		1A32BAE3282FB8EC009F6A39 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32BAE2282FB8EC009F6A39 /* ComplicationController.swift */; };
 		1A32BAE5282FB8EC009F6A39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A32BAE4282FB8EC009F6A39 /* Assets.xcassets */; };
 		1A32BAE8282FB8EC009F6A39 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A32BAE7282FB8EC009F6A39 /* Preview Assets.xcassets */; };
+		1A32BAFA282FB920009F6A39 /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A32BAF9282FB920009F6A39 /* WatchConnectivity.framework */; };
+		1A32BAFC282FBB1A009F6A39 /* ConnectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32BAFB282FBB1A009F6A39 /* ConnectionProvider.swift */; };
+		1A32BAFD282FBB5A009F6A39 /* ConnectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32BAFB282FBB1A009F6A39 /* ConnectionProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +86,8 @@
 		1A32BAE7282FB8EC009F6A39 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1A32BAE9282FB8EC009F6A39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A32BAEA282FB8EC009F6A39 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		1A32BAF9282FB920009F6A39 /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.4.sdk/System/Library/Frameworks/WatchConnectivity.framework; sourceTree = DEVELOPER_DIR; };
+		1A32BAFB282FBB1A009F6A39 /* ConnectionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A32BAFA282FB920009F6A39 /* WatchConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +116,7 @@
 				1A32BACE282FB8EB009F6A39 /* watch-with-ios-2 WatchKit App */,
 				1A32BAD9282FB8EC009F6A39 /* watch-with-ios-2 WatchKit Extension */,
 				1A32BABD282FB8EA009F6A39 /* Products */,
+				1A32BAF8282FB920009F6A39 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +137,7 @@
 				1A32BAC1282FB8EA009F6A39 /* ContentView.swift */,
 				1A32BAC3282FB8EB009F6A39 /* Assets.xcassets */,
 				1A32BAC5282FB8EB009F6A39 /* Preview Content */,
+				1A32BAFB282FBB1A009F6A39 /* ConnectionProvider.swift */,
 			);
 			path = "watch-with-ios-2";
 			sourceTree = "<group>";
@@ -172,6 +180,14 @@
 				1A32BAE7282FB8EC009F6A39 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1A32BAF8282FB920009F6A39 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A32BAF9282FB920009F6A39 /* WatchConnectivity.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +323,7 @@
 			files = (
 				1A32BAC2282FB8EA009F6A39 /* ContentView.swift in Sources */,
 				1A32BAC0282FB8EA009F6A39 /* watch_with_ios_2App.swift in Sources */,
+				1A32BAFC282FBB1A009F6A39 /* ConnectionProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A32BAFD282FBB5A009F6A39 /* ConnectionProvider.swift in Sources */,
 				1A32BADF282FB8EC009F6A39 /* NotificationController.swift in Sources */,
 				1A32BADD282FB8EC009F6A39 /* ContentView.swift in Sources */,
 				1A32BAE3282FB8EC009F6A39 /* ComplicationController.swift in Sources */,

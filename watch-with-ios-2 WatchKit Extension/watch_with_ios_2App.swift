@@ -1,10 +1,3 @@
-//
-//  watch_with_ios_2App.swift
-//  watch-with-ios-2 WatchKit Extension
-//
-//  Created by Mark Volkmann on 5/14/22.
-//
-
 import SwiftUI
 
 @main

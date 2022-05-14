@@ -1,21 +1,18 @@
-//
-//  ContentView.swift
-//  watch-with-ios-2 WatchKit Extension
-//
-//  Created by Mark Volkmann on 5/14/22.
-//
-
+// For watchOS
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        Text("Hello, World!")
-            .padding()
-    }
-}
+    let connectionProvider = ConnectionProvider.instance
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+    var body: some View {
+        Button("Send to Watch") {
+            connectionProvider.sendValue(key: "text", value: "from watch")
+        }
+        .buttonStyle(.borderedProminent)
+        .onAppear {
+            if !connectionProvider.session.isReachable {
+                connectionProvider.session.activate()
+            }
+        }
     }
 }
