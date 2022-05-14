@@ -2,8 +2,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var model = Model.instance
     let connectionProvider = ConnectionProvider.instance
-    let model = Model.instance
 
     var body: some View {
         VStack {

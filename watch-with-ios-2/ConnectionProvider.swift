@@ -87,7 +87,11 @@ class ConnectionProvider: NSObject, WCSessionDelegate {
         if let value = extractValue(key: "text", message: message) {
             let text = value as! String
             print("ConnectionProvider.session: text = \(text)")
-            model.message = text
+            // Update the model on the main thread.
+            Task {
+                await MainActor.run { model.message = text }
+            }
+
         }
     }
 }
