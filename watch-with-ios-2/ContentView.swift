@@ -3,10 +3,14 @@ import SwiftUI
 
 struct ContentView: View {
     let connectionProvider = ConnectionProvider.instance
+    let model = Model.instance
 
     var body: some View {
-        Button("Send to Watch") {
-            connectionProvider.sendValue(key: "text", value: "from phone")
+        VStack {
+            Button("Send to Watch") {
+                connectionProvider.sendValue(key: "text", value: "from phone")
+            }
+            Text("received \(model.message)")
         }
         .buttonStyle(.borderedProminent)
         .onAppear {

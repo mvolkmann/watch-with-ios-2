@@ -24,6 +24,8 @@
 		1A32BAFA282FB920009F6A39 /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A32BAF9282FB920009F6A39 /* WatchConnectivity.framework */; };
 		1A32BAFC282FBB1A009F6A39 /* ConnectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32BAFB282FBB1A009F6A39 /* ConnectionProvider.swift */; };
 		1A32BAFD282FBB5A009F6A39 /* ConnectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32BAFB282FBB1A009F6A39 /* ConnectionProvider.swift */; };
+		1A4E6720282FC30100EB221E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E671F282FC30100EB221E /* Model.swift */; };
+		1A4E6721282FC3A900EB221E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4E671F282FC30100EB221E /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,7 @@
 		1A32BAEA282FB8EC009F6A39 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		1A32BAF9282FB920009F6A39 /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.4.sdk/System/Library/Frameworks/WatchConnectivity.framework; sourceTree = DEVELOPER_DIR; };
 		1A32BAFB282FBB1A009F6A39 /* ConnectionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionProvider.swift; sourceTree = "<group>"; };
+		1A4E671F282FC30100EB221E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +141,7 @@
 				1A32BAC3282FB8EB009F6A39 /* Assets.xcassets */,
 				1A32BAC5282FB8EB009F6A39 /* Preview Content */,
 				1A32BAFB282FBB1A009F6A39 /* ConnectionProvider.swift */,
+				1A4E671F282FC30100EB221E /* Model.swift */,
 			);
 			path = "watch-with-ios-2";
 			sourceTree = "<group>";
@@ -324,6 +328,7 @@
 				1A32BAC2282FB8EA009F6A39 /* ContentView.swift in Sources */,
 				1A32BAC0282FB8EA009F6A39 /* watch_with_ios_2App.swift in Sources */,
 				1A32BAFC282FBB1A009F6A39 /* ConnectionProvider.swift in Sources */,
+				1A4E6720282FC30100EB221E /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A4E6721282FC3A900EB221E /* Model.swift in Sources */,
 				1A32BAFD282FBB5A009F6A39 /* ConnectionProvider.swift in Sources */,
 				1A32BADF282FB8EC009F6A39 /* NotificationController.swift in Sources */,
 				1A32BADD282FB8EC009F6A39 /* ContentView.swift in Sources */,

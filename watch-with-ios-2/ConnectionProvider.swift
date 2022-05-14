@@ -3,6 +3,7 @@ import WatchConnectivity
 
 class ConnectionProvider: NSObject, WCSessionDelegate {
     static let instance = ConnectionProvider()
+    let model = Model.instance
     
     //let session = WCSession.default
     let session: WCSession
@@ -86,6 +87,7 @@ class ConnectionProvider: NSObject, WCSessionDelegate {
         if let value = extractValue(key: "text", message: message) {
             let text = value as! String
             print("ConnectionProvider.session: text = \(text)")
+            model.message = text
         }
     }
 }
