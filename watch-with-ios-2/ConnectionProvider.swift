@@ -41,6 +41,7 @@ class ConnectionProvider: NSObject, WCSessionDelegate {
             // The WCSession sendMessage method requires
             // a Dictionary with String keys and Any values.
             let message = [key: bytes]
+            print("ConnectionProvider.sendValue: message = \(message)")
             session.sendMessage(message, replyHandler: nil) { error in
                 print("ConnectionProvider.sendValue error: \(error)")
             }

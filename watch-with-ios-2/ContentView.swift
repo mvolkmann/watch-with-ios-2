@@ -8,7 +8,11 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Button("Send to Watch") {
-                connectionProvider.sendValue(key: "text", value: "from phone")
+                let format = DateFormatter()
+                format.timeStyle = .medium
+                format.dateStyle = .medium
+                let value = "from phone, \(format.string(from: Date()))"
+                connectionProvider.sendValue(key: "text", value: value)
             }
             Text("received \(model.message)")
         }
