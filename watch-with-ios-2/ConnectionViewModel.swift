@@ -7,9 +7,6 @@ class ConnectionViewModel: NSObject, ObservableObject {
     static let shared = ConnectionViewModel()
 
     private let session = WCSession.default
-    private let vm = ViewModel.shared
-
-    private var lastMessageTime: CFAbsoluteTime = 0
 
     override private init() {
         super.init()
@@ -19,51 +16,20 @@ class ConnectionViewModel: NSObject, ObservableObject {
         }
     }
 
-    func extractValue(key: String, message: [String: Any]) -> Any? {
-        do {
-            if let bytes = message[key] as? Data {
-                return try NSKeyedUnarchiver
-                    .unarchiveTopLevelObjectWithData(bytes) as Any
-            }
-        } catch {
-            print(
-                "ConnectionProvider.extractObject error \(error.localizedDescription)"
-            )
-        }
-        return nil
-    }
-
     func send(message: [String: Any]) {
         #if os(watchOS)
             guard WCSession.default.isCompanionAppInstalled else {
-                print("ConnectionProvider.send: iPhone app is not installed")
+                print("ConnectionViewModel: iPhone app is not installed")
                 return
             }
         #else
             guard WCSession.default.isWatchAppInstalled else {
-                print("ConnectionProvider.send: watch app is not installed")
+                print("ConnectionViewModel: watch app is not installed")
                 return
             }
         #endif
 
         session.transferUserInfo(message)
-
-        /*
-         // Limit the rate at which messages can be sent.
-         let currentTime = CFAbsoluteTimeGetCurrent()
-         guard currentTime >= lastMessageTime + 0.5 else { return }
-
-         print("ConnectionProvider.send: message =", message)
-         if session.isReachable {
-             session.sendMessage(message, replyHandler: nil) { error in
-                 print("ConnectionProvider.send: error = \(error)")
-             }
-         } else {
-             print("ConnectionProvider.send: session is not reachable")
-         }
-
-         lastMessageTime = CFAbsoluteTimeGetCurrent()
-         */
     }
 }
 
@@ -77,15 +43,15 @@ extension ConnectionViewModel: WCSessionDelegate {
     ) {
         if let error = error {
             print(
-                "ConnectionProvider.session: error \(error.localizedDescription)"
+                "ConnectionViewModel: error \(error.localizedDescription)"
             )
         } else {
             // notActivated = 0, inactive = 1, activated = 2
             print(
-                "ConnectionProvider.session: activationState = \(activationState.rawValue)"
+                "ConnectionViewModel: activationState = \(activationState.rawValue)"
             )
             print(
-                "ConnectionProvider.session: reachable? \(session.isReachable)"
+                "ConnectionViewModel: reachable? \(session.isReachable)"
             )
         }
     }
@@ -106,37 +72,12 @@ extension ConnectionViewModel: WCSessionDelegate {
         }
     #endif
 
-    // This is called when a message is received.
-    // @MainActor
-    func session(
-        _: WCSession,
-        didReceiveMessage message: [String: Any]
-    ) {
-        print("ConnectionProvider.session: message =", message)
-        DispatchQueue.main.async {
-            self.message = message
-        }
-        /*
-         if let value = extractValue(key: "text", message: message) {
-             let text = value as! String
-             print("ConnectionProvider.session: text = \(text)")
-
-             // Update the model on the main thread.
-             Task {
-                 await MainActor.run { vm.message = text }
-             }
-         }
-         */
-    }
-
-    // @MainActor
     func session(
         _: WCSession,
         didReceiveUserInfo userInfo: [String: Any]
     ) {
-        print("ConnectionProvider.session: userInfo =", userInfo)
-        DispatchQueue.main.async {
-            self.message = userInfo
+        Task {
+            await MainActor.run { self.message = userInfo }
         }
     }
 }
