@@ -2,17 +2,34 @@
 import SwiftUI
 
 struct ContentView: View {
-    let connectionProvider = ConnectionProvider.instance
+    @StateObject private var vm = ConnectionViewModel.shared
+
+    private var keys: [String] {
+        Array(vm.message.keys)
+    }
+
+    private var timestamp: String {
+        let format = DateFormatter()
+        format.timeStyle = .medium
+        format.dateStyle = .medium
+        return format.string(from: Date())
+    }
 
     var body: some View {
-        Button("Send to Watch") {
-            connectionProvider.sendValue(key: "text", value: "from phone")
-        }
-        .buttonStyle(.borderedProminent)
-        .onAppear {
-            if !connectionProvider.session.isReachable {
-                connectionProvider.session.activate()
+        VStack {
+            Button("Send to Watch") {
+                vm.send(message: ["timestamp": timestamp])
+            }
+
+            ForEach(keys, id: \.self) { key in
+                Text("\(key) = \(stringForKey(key))")
             }
         }
+        .buttonStyle(.borderedProminent)
+    }
+
+    private func stringForKey(_ key: String) -> String {
+        guard let value = vm.message[key] else { return "" }
+        return String(describing: value)
     }
 }
