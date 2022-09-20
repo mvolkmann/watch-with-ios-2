@@ -32,16 +32,15 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Button("Send to Phone") {
-                let message = watchData
-                print("sending", message)
-                vm.send(message: message)
+                vm.send(message: watchData)
             }
 
-            let timestamp = vm.message["timestamp"] as? String ?? ""
+            let timestamp = vm.message["timestamp"] as? String ?? "unknown"
             Text("timestamp = \(timestamp)")
         }
         .buttonStyle(.borderedProminent)
         .onAppear {
+            // We cannot get the battery charge percentage without this.
             watch.isBatteryMonitoringEnabled = true
         }
     }

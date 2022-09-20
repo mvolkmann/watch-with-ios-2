@@ -8,7 +8,5 @@ struct watch_with_ios_2App: App {
                 ContentView()
             }
         }
-
-        WKNotificationScene(controller: NotificationController.self, category: "myCategory")
     }
 }

@@ -46,6 +46,8 @@ extension ConnectionViewModel: WCSessionDelegate {
                 "ConnectionViewModel: error \(error.localizedDescription)"
             )
         } else {
+            // These print calls are just for debugging.
+            // activationState values re
             // notActivated = 0, inactive = 1, activated = 2
             print(
                 "ConnectionViewModel: activationState = \(activationState.rawValue)"
@@ -65,6 +67,7 @@ extension ConnectionViewModel: WCSessionDelegate {
 
         // This is only available in iOS.  It is called when there is
         // a permanent disconnection between the phone and watch.
+        // This can happen if the user switches to a new phone.
         func sessionDidDeactivate(_: WCSession) {
             print("phone/watch connection was deactivated")
             session.activate()

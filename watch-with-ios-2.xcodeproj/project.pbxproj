@@ -16,8 +16,6 @@
 		1A32BAD6282FB8EC009F6A39 /* watch-with-ios-2 WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1A32BAD5282FB8EC009F6A39 /* watch-with-ios-2 WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1A32BADB282FB8EC009F6A39 /* watch_with_ios_2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32BADA282FB8EC009F6A39 /* watch_with_ios_2App.swift */; };
 		1A32BADD282FB8EC009F6A39 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32BADC282FB8EC009F6A39 /* ContentView.swift */; };
-		1A32BADF282FB8EC009F6A39 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32BADE282FB8EC009F6A39 /* NotificationController.swift */; };
-		1A32BAE1282FB8EC009F6A39 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32BAE0282FB8EC009F6A39 /* NotificationView.swift */; };
 		1A32BAE3282FB8EC009F6A39 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32BAE2282FB8EC009F6A39 /* ComplicationController.swift */; };
 		1A32BAE5282FB8EC009F6A39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A32BAE4282FB8EC009F6A39 /* Assets.xcassets */; };
 		1A32BAE8282FB8EC009F6A39 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A32BAE7282FB8EC009F6A39 /* Preview Assets.xcassets */; };
@@ -79,8 +77,6 @@
 		1A32BAD5282FB8EC009F6A39 /* watch-with-ios-2 WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "watch-with-ios-2 WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A32BADA282FB8EC009F6A39 /* watch_with_ios_2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watch_with_ios_2App.swift; sourceTree = "<group>"; };
 		1A32BADC282FB8EC009F6A39 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		1A32BADE282FB8EC009F6A39 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		1A32BAE0282FB8EC009F6A39 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		1A32BAE2282FB8EC009F6A39 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		1A32BAE4282FB8EC009F6A39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A32BAE7282FB8EC009F6A39 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -163,8 +159,6 @@
 			children = (
 				1A32BADA282FB8EC009F6A39 /* watch_with_ios_2App.swift */,
 				1A32BADC282FB8EC009F6A39 /* ContentView.swift */,
-				1A32BADE282FB8EC009F6A39 /* NotificationController.swift */,
-				1A32BAE0282FB8EC009F6A39 /* NotificationView.swift */,
 				1A32BAE2282FB8EC009F6A39 /* ComplicationController.swift */,
 				1A32BAE4282FB8EC009F6A39 /* Assets.xcassets */,
 				1A32BAE9282FB8EC009F6A39 /* Info.plist */,
@@ -332,11 +326,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A32BAFD282FBB5A009F6A39 /* ConnectionViewModel.swift in Sources */,
-				1A32BADF282FB8EC009F6A39 /* NotificationController.swift in Sources */,
 				1A32BADD282FB8EC009F6A39 /* ContentView.swift in Sources */,
 				1A32BAE3282FB8EC009F6A39 /* ComplicationController.swift in Sources */,
 				1A32BADB282FB8EC009F6A39 /* watch_with_ios_2App.swift in Sources */,
-				1A32BAE1282FB8EC009F6A39 /* NotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
