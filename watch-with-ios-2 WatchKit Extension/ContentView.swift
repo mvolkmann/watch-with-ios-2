@@ -2,25 +2,47 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var model = Model.instance
-    let connectionProvider = ConnectionProvider.instance
+    @StateObject private var vm = ConnectionViewModel.shared
+
+    private let batteryStateMap: [WKInterfaceDeviceBatteryState: String] = [
+        .charging: "charging",
+        .full: "full",
+        .unknown: "unknown",
+        .unplugged: "unplugged",
+    ]
+
+    private var timestamp: String {
+        let format = DateFormatter()
+        format.timeStyle = .medium
+        format.dateStyle = .medium
+        return format.string(from: Date())
+    }
+
+    private let watch = WKInterfaceDevice.current()
+
+    private var watchData: [String: Any] {
+        [
+            "batteryPercent": Int((watch.batteryLevel * 100).rounded()),
+            "batteryState": batteryStateMap[watch.batteryState] ?? "unknown",
+            "systemVersion": watch.systemVersion,
+            "timestamp": timestamp
+        ]
+    }
 
     var body: some View {
         VStack {
             Button("Send to Phone") {
-                let format = DateFormatter()
-                format.timeStyle = .medium
-                format.dateStyle = .medium
-                let value = "from watch, \(format.string(from: Date()))"
-                connectionProvider.sendValue(key: "text", value: value)
+                let message = watchData
+                print("sending", message)
+                vm.send(message: message)
             }
-            Text("received \(model.message)")
+
+            let timestamp = vm.message["timestamp"] as? String ?? ""
+            Text("timestamp = \(timestamp)")
         }
         .buttonStyle(.borderedProminent)
         .onAppear {
-            if !connectionProvider.session.isReachable {
-                connectionProvider.session.activate()
-            }
+            watch.isBatteryMonitoringEnabled = true
         }
     }
 }
